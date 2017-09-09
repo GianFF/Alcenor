@@ -1,0 +1,24 @@
+{
+  "name": "Alcenor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "alcenor.js",
+  "dependencies": {
+    "semantic-ui": "^2.2.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GianFF/Alcenor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GianFF/Alcenor/issues"
+  },
+  "homepage": "https://github.com/GianFF/Alcenor#readme"
+}
