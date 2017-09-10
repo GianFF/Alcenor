@@ -29,11 +29,16 @@
             Catálogos
             <i class="ui dropdown icon"></i>
             <div class="menu">
-              <a class="item">Línea Américana</a>
-              <a class="item">Línea Gold</a>
-              <a class="item">Línea 6000</a>
-              <a class="item">Línea Tradicional</a>
-              <a class="item">Línea 640</a>
+              <a class="item" onclick="abrirCatalago('assets/lineaamericana.pdf')">Línea Américana</a>
+              <a class="item" onclick="abrirCatalago('assets/lineagold.pdf')" >Línea Gold</a>
+              <a class="item" onclick="abrirCatalago('assets/lineatradicional.pdf')" >Línea 6000</a>
+              <a class="item" onclick="abrirCatalago('assets/linea6000.pdf')" >Línea Tradicional</a>
+              <a class="item" onclick="abrirCatalago('assets/linea640.pdf')" >Línea 640</a>
+              <script type="text/javascript">
+                function abrirCatalago(pdfSrc){
+                  window.open(pdfSrc);
+                }
+              </script>
             </div>
           </div>
         </div>
@@ -50,22 +55,27 @@
     <div class="carrousel_images">
       <div class="ui middle_aligned medium image">
         <img src="assets/lineaamericana.png">
+        <div hidden>'assets/lineaamericana.pdf'</div>
         <h1 class="alcenor_sub_titles">Línea Americana</h1>
       </div>
       <div class="ui middle_aligned medium image">
         <img src="assets/lineagold.png">
+        <div hidden>'assets/lineagold.pdf'</div>
         <h1 class="alcenor_sub_titles">Línea Gold</h1>
       </div>
       <div class="ui middle_aligned medium image">
         <img src="assets/lineatradicional.png">
+        <div hidden>'assets/lineatradicional.pdf'</div>
         <h1 class="alcenor_sub_titles">Línea Tradicional</h1>
       </div>
       <div class="ui middle_aligned medium image">
         <img src="assets/linea6000.png">
+        <div hidden>'assets/linea6000.pdf'</div>
         <h1 class="alcenor_sub_titles">Línea 6000</h1>
       </div>
       <div class="ui middle_aligned medium image">
         <img src="assets/linea640.png">
+        <div hidden>'assets/linea640.pdf'</div>
         <h1 class="alcenor_sub_titles">Línea 640</h1>
       </div>
     </div>

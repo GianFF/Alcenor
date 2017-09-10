@@ -1,16 +1,13 @@
+var pdf = null;
 
 $(document).ready(function(){
-	
+
 	initMap();
 	showModal();
+	openCatalagoInNewWindow();
 	initializeHeaderDropdown();
 	initializeCarrousel('.carrousel_images', 3);
 	initializeCarrousel('.carrousel_servicios', 1);
-
-	$('#show_catalog').click(function(e){
-		debugger;
-		window.open('assets/lineagold.pdf');
-	});
 });
 
 function initMap(){
@@ -47,10 +44,25 @@ function initializeCarrousel(carrousel, slidesToShow){
 function showModal(){
 	$('.ui.middle_aligned.medium.image').click(function(e){
 		var src = $(this).children()[0].src;
+		chargePdfSrc($(this).children()[1].outerText);
 
 		$('#modal_header').text(e.delegateTarget.textContent);
 		$("#modal_image").attr("src", src);
 
 		$('.ui.modal').modal('show');
+	});
+}
+
+function chargePdfSrc(pdfSrc){
+	pdf = pdfSrc.substring(1, pdfSrc.length-1)
+}
+
+function openCatalagoInNewWindow(){
+	$('#show_catalog').click(function(e){	
+		if(pdf===null){
+			window.alert("Catálogo no encontrado");
+			return;
+		}
+		window.open(pdf);
 	});
 }
