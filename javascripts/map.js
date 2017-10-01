@@ -44,10 +44,12 @@ function Modal() {
 }
 
 // public
+
 Modal.prototype.modal = $('.ui.middle_aligned.medium.image');
 
 Modal.prototype.show = function (){
-    self = this;
+    var self = this;
+
     this.modal.click(function(e){
         var clickedImageSrc = $(this).children()[0].src;
         self.chargePdfSrc($(this).children()[1].outerText);
@@ -99,3 +101,54 @@ function Catalog(){
 function Dropdawn(){
     $('.ui.dropdown.item').dropdown();
 }
+
+////////////////////// COMPONENTS ///////////////////////////
+
+function SistemaDeCarpinteriaImageComponent(img_src, pdf_src, title){
+    this.img_src = img_src;
+    this.pdf_src = pdf_src;
+    this.title = title;
+}
+
+SistemaDeCarpinteriaImageComponent.prototype.toHTML = function(){
+    return "<div class='ui middle_aligned medium image'>"+
+                "<img src=' "+this.img_src+" '>"+
+                "<div hidden>' "+this.pdf_src+" '</div>"+
+                "<h1 class='alcenor_sub_titles'>"+ this.title +"</h1>"+
+            "</div>";
+};
+
+SistemaDeCarpinteriaImageComponent.prototype.bindClick = function (){
+    var self = this;
+
+    $('.ui.middle_aligned.medium.image').click(function(e){
+        var clickedImageSrc = $(this).children()[0].src;
+        self.chargePdfSrc($(this).children()[1].outerText);
+
+        $('#modal_header').text(e.delegateTarget.textContent);
+        $("#modal_image").attr("src", clickedImageSrc);
+
+        $('.ui.modal').modal('show');
+    });
+};
+
+
+// private
+
+SistemaDeCarpinteriaImageComponent.prototype.chargePdfSrc = function (pdfSrc){
+    pdf.src = pdfSrc.substring(1, pdfSrc.length-1)
+};
+
+function SistemaDeCarpinteriaImageComponentsComposer(){
+    this.container = $('#sistemas_de_carpinteria');
+}
+
+////////////////////// COMPOSER ///////////////////////////
+
+SistemaDeCarpinteriaImageComponentsComposer.prototype.compose = function(components){
+    var self = this;
+    components.forEach(function(component) {
+        self.container.append(component.toHTML());
+        component.bindClick();
+    });
+};
