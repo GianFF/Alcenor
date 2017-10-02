@@ -104,13 +104,13 @@ function Dropdawn(){
 
 ////////////////////// COMPONENTS ///////////////////////////
 
-function SistemaDeCarpinteriaImageComponent(img_src, pdf_src, title){
+function ImageComponent(img_src, pdf_src, title){
     this.img_src = img_src;
     this.pdf_src = pdf_src;
     this.title = title;
 }
 
-SistemaDeCarpinteriaImageComponent.prototype.toHTML = function(){
+ImageComponent.prototype.toHTML = function(){
     return "<div class='ui middle_aligned medium image'>"+
                 "<img src=' "+this.img_src+" '>"+
                 "<div hidden>' "+this.pdf_src+" '</div>"+
@@ -118,7 +118,7 @@ SistemaDeCarpinteriaImageComponent.prototype.toHTML = function(){
             "</div>";
 };
 
-SistemaDeCarpinteriaImageComponent.prototype.bindClick = function (){
+ImageComponent.prototype.bindClick = function (){
     var self = this;
 
     $('.ui.middle_aligned.medium.image').click(function(e){
@@ -134,17 +134,17 @@ SistemaDeCarpinteriaImageComponent.prototype.bindClick = function (){
 
 // private
 
-SistemaDeCarpinteriaImageComponent.prototype.chargePdfSrc = function (pdfSrc){
+ImageComponent.prototype.chargePdfSrc = function (pdfSrc){
     pdf.src = pdfSrc.substring(1, pdfSrc.length-1)
 };
 
-function SistemaDeCarpinteriaImageComponentsComposer(){
-    this.container = $('#sistemas_de_carpinteria');
-}
-
 ////////////////////// COMPOSER ///////////////////////////
 
-SistemaDeCarpinteriaImageComponentsComposer.prototype.compose = function(components){
+function ImageComponentComposer(container){
+    this.container = $(container);
+}
+
+ImageComponentComposer.prototype.compose = function(components){
     var self = this;
     components.forEach(function(component) {
         self.container.append(component.toHTML());

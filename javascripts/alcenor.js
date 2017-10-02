@@ -7,18 +7,21 @@ x.onload = main;
 
 function main(){
     var sistemasDeCarpinteriaComponents = [
-        new SistemaDeCarpinteriaImageComponent("assets/lineaamericana.png", "assets/lineaamericana.pdf", "Línea Americana"),
-        new SistemaDeCarpinteriaImageComponent("assets/lineagold.png", "assets/lineagold.pdf", "Línea Gold"),
-        new SistemaDeCarpinteriaImageComponent("assets/lineatradicional.png", "assets/lineatradicional.pdf", "Línea Tradicional"),
-        new SistemaDeCarpinteriaImageComponent("assets/linea6000.png", "assets/linea6000.pdf", "Línea 600"),
-        new SistemaDeCarpinteriaImageComponent("assets/linea640.png", "assets/linea640.pdf", "Línea 640")
+        new ImageComponent("assets/lineaamericana.png", "assets/lineaamericana.pdf", "Línea Americana"),
+        new ImageComponent("assets/lineagold.png", "assets/lineagold.pdf", "Línea Gold"),
+        new ImageComponent("assets/lineatradicional.png", "assets/lineatradicional.pdf", "Línea Tradicional"),
+        new ImageComponent("assets/linea6000.png", "assets/linea6000.pdf", "Línea 600"),
+        new ImageComponent("assets/linea640.png", "assets/linea640.pdf", "Línea 640")
     ];
-
+    var fachadasIntegralesComponents = [
+        new ImageComponent("assets/frenteintegral.png", "assets/frenteintegral.pdf", "Frente Integral"),
+        new ImageComponent("assets/pieldevidrio.png", "assets/pieldevidrio.pdf", "Piel de Vidrio"),
+    ];
     $(document).ready(function(){
         new Dropdawn();
 
-        var sistemasDeCarpinteriaComposer =  new SistemaDeCarpinteriaImageComponentsComposer();
-        sistemasDeCarpinteriaComposer.compose(sistemasDeCarpinteriaComponents);
+        new ImageComponentComposer('#sistemas_de_carpinteria').compose(sistemasDeCarpinteriaComponents);
+        new ImageComponentComposer('#fachadas_integrales').compose(fachadasIntegralesComponents);
 
         new Carrousel('.carrousel_images', 3);
         new Carrousel('.carrousel_servicios', 1);
