@@ -124,8 +124,7 @@ SistemaDeCarpinteriaImageComponent.prototype.bindClick = function (){
     $('.ui.middle_aligned.medium.image').click(function(e){
         var clickedImageSrc = $(this).children()[0].src;
         self.chargePdfSrc($(this).children()[1].outerText);
-
-        $('#modal_header').text(e.delegateTarget.textContent);
+        $('#modal_header').text(e.delegateTarget.innerText);
         $("#modal_image").attr("src", clickedImageSrc);
 
         $('.ui.modal').modal('show');
