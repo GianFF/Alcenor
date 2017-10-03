@@ -17,11 +17,24 @@ function main(){
         new ImageComponent("assets/frenteintegral.png", "assets/frenteintegral.pdf", "Frente Integral"),
         new ImageComponent("assets/pieldevidrio.png", "assets/pieldevidrio.pdf", "Piel de Vidrio"),
     ];
+    var sistemasComplementariosComponents = [
+        new ImageComponent("assets/baranda.png", "assets/baranda.pdf", "Barandas"),
+        new ImageComponent("assets/techovidriado.png", "assets/techovidriado.pdf", "Cortinas de Enrollar"),
+        new ImageComponent("assets/mampara.png", "assets/mampara.pdf", "Mampara de Baño"),
+        new ImageComponent("assets/proximamente.png", "assets/proximamente.pdf", "Revestimientos"),
+        new ImageComponent("assets/proximamente.png", "assets/proximamente.pdf", "Cortinas de enrrollar"),
+        new ImageComponent("assets/tabiqueria.png", "assets/tabiqueria.pdf", "Tabiqueria"),
+        new ImageComponent("assets/proximamente.png", "assets/proximamente.pdf", "Parasoles"),
+        new ImageComponent("assets/frentedeplacard.png", "assets/frentedeplacard.pdf", "Frente de Placard"),
+        new ImageComponent("assets/normalizados.png", "assets/normalizados.pdf", "Estructurales"),
+    ];
+
     $(document).ready(function(){
         new Dropdawn();
 
-        new ImageComponentComposer('#sistemas_de_carpinteria').compose(sistemasDeCarpinteriaComponents);
-        new ImageComponentComposer('#fachadas_integrales').compose(fachadasIntegralesComponents);
+        new ImageComponentComposer('#sistemas_de_carpinteria_components').compose(sistemasDeCarpinteriaComponents);
+        new ImageComponentComposer('#fachadas_integrales_components').compose(fachadasIntegralesComponents);
+        new ImageComponentComposer('#sistemas_complementarios_components').compose(sistemasComplementariosComponents);
 
         new Carrousel('.carrousel_images', 3);
         new Carrousel('.carrousel_servicios', 1);
