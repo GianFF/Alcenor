@@ -28,6 +28,27 @@ function main(){
         new ImageComponent("assets/frentedeplacard.png", "assets/frentedeplacard.pdf", "Frente de Placard"),
         new ImageComponent("assets/normalizados.png", "assets/normalizados.pdf", "Estructurales"),
     ];
+    var serviciosComponents = [
+        new ServicioComponent("assets/servicio_pintado.png",
+            "Es el proceso de recubrimiento con pintura en polvo por sistema electroestático y horneado en colores con terminación brillante, semimate, microtexturado y simil madera dicho proceso permite mayor espesor y uniformidad en la terminación del producto.",
+            "Pintado",
+            "alcenor_servicio_pintado"),
+        new ServicioComponent("assets/servicio_anodizado.png",
+            "Al igual que el anodizado el proceso de electrocoloración forma una capa protectora de óxido de aluminio sobre la superficie de aluminio base, dicho proceso tiene la posibilidad de ser coloreado obteniéndose distintas tonalidades.",
+            "Anodizado",
+            "alcenor_servicio_anodizado"),
+        new ServicioComponent("assets/servicio_electrocoloracion.jpg",
+            "Es un tratamiento electrolítico que brinda dureza superficial, resistencia a la abrasión y corrosión de agentes químicos y/o atmosféricos brindando una mayor vida útil.",
+            "Electrocoloración",
+            "alcenor_servicio_curvado"),
+        new ServicioComponent("assets/servicio_curvado.png",
+            "",
+            "Curvado"),
+        new ServicioComponent("assets/servicio_perfilesexclusivos.png",
+            "Los Perfiles de Aluminio tienen múltiples aplicaciones. Alcenor ofrece su capacidad y experiencia en el desarrollo de productos para asesorar y apoyar al cliente para que su idea se lleve a cabo, únicamente trabajamos con materia prima Aluar y disponemos además de profesionales especializados.",
+            "Diseño de perfiles exclusivos",
+            "alcenor_servicio_disenio")
+    ];
 
     $(document).ready(function(){
         new Dropdawn();
@@ -35,6 +56,8 @@ function main(){
         new ImageComponentComposer('#sistemas_de_carpinteria_components').compose(sistemasDeCarpinteriaComponents);
         new ImageComponentComposer('#fachadas_integrales_components').compose(fachadasIntegralesComponents);
         new ImageComponentComposer('#sistemas_complementarios_components').compose(sistemasComplementariosComponents);
+
+        new ServicioComponentComposer('#servicios_components').compose(serviciosComponents);
 
         new Carrousel('.carrousel_images', 3);
         new Carrousel('.carrousel_servicios', 1);
