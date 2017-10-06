@@ -131,11 +131,31 @@ ImageComponent.prototype.bindClick = function (){
     });
 };
 
-
 // private
 
 ImageComponent.prototype.chargePdfSrc = function (pdfSrc){
     pdf.src = pdfSrc.substring(1, pdfSrc.length-1)
+};
+
+///////////////////////////////////////////////////////////////////////
+
+function ServicioComponent(img_src, description, title, htmlClass){
+    this.img_src = img_src;
+    this.description = description;
+    this.title = title;
+    this.htmlId = htmlClass;
+}
+
+ServicioComponent.prototype.toHTML = function(){
+    return "<div id=' "+this.htmlId+" '>"+
+                    "<h2 class='alcenor_titles' id='alcenor_title_rigth'>"+this.title+"</h2>"+
+                    "<div class='ui grid container'>"+
+                        "<div class='wide column'>"+
+                            "<img class='i large left circular floated image' id='alcenor_nosotros' src=' "+this.img_src+" '>"+
+                            "<p class='alcenor_text'>"+ this.description +"</p>"+
+                        "</div>"+
+                    "</div>"+
+                "</div>";
 };
 
 ////////////////////// COMPOSER ///////////////////////////
@@ -149,5 +169,18 @@ ImageComponentComposer.prototype.compose = function(components){
     components.forEach(function(component) {
         self.container.append(component.toHTML());
         component.bindClick();
+    });
+};
+
+///////////////////////////////////////////////////////////////////////
+
+function ServicioComponentComposer(container){
+    this.container = $(container);
+}
+
+ServicioComponentComposer.prototype.compose = function(components){
+    var self = this;
+    components.forEach(function(component) {
+        self.container.append(component.toHTML());
     });
 };
